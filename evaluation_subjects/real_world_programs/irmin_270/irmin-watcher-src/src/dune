@@ -1,0 +1,9 @@
+(library
+  (name        irmin_watcher)
+  (public_name irmin-watcher)
+  (c_names     realpath)
+  (libraries   fmt lwt logs astring
+     (select backend.ml from
+        (lwt.unix                    -> backend.polling.ml))
+     (select backend.mli from
+        (lwt.unix                    -> backend.polling.mli))))
